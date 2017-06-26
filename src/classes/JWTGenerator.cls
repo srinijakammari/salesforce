@@ -25,9 +25,9 @@ public with sharing class JWTGenerator {
     }
 
 	private void setLoginUrl(){
-		List < Organization > org = [Select Id, IsSandbox FROM Organization];
+		List < Organization > org = [Select Id, IsProduction FROM Organization];
         if (org.size() > 0) {
-            if (org[0].IsSandbox) {
+            if (org[0].IsProduction) {
                 loginUrl = 'https://test.salesforce.com';
             }
         }
